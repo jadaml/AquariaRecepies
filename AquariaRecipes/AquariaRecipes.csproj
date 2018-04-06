@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TextTemplating\Microsoft.TextTemplating.targets" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C05C9BF6-FCA6-4AF8-8E69-14B14F4F6B47}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>JAL.AquariaRecipes</RootNamespace>
+    <AssemblyName>AquariaRecipes</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PowerUtils>$(SolutionDir)PowerUtils.SemVer\bin\$(Configuration)\</PowerUtils>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>Properties\VersionResource.generated.res</Win32Resource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Enhancer.SemVer">
+      <HintPath>..\References\Internal\Enhancer.SemVer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-ShellExtensions.1.1.1\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\AquariaRecipesContext.cs" />
+    <Compile Include="Interface\BingingSourceExtensions.cs" />
+    <Compile Include="Interface\BrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\BrowserForm.Designer.cs">
+      <DependentUpon>BrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\EditIngredient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EditIngredient.Designer.cs">
+      <DependentUpon>EditIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EditorForm.Designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\Extensions.cs" />
+    <Compile Include="Interface\ImageItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interface\ImageItemControl.Designer.cs">
+      <DependentUpon>ImageItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\LoadProgressArguments.cs" />
+    <Compile Include="Interface\NewImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\NewImage.Designer.cs">
+      <DependentUpon>NewImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\RecipeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\RecipeEditor.Designer.cs">
+      <DependentUpon>RecipeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\RecipeItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Interface\RecipeItem.Designer.cs">
+      <DependentUpon>RecipeItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\UpdateOperation.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\StringLoader.cs" />
+    <Compile Include="Properties\VersionInfo.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VersionInfo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipes\Category.cs" />
+    <Compile Include="Recipes\BasicIngredient.cs" />
+    <Compile Include="Recipes\IIngredient.cs" />
+    <Compile Include="Recipes\IListOwner.cs" />
+    <Compile Include="Recipes\Image.cs" />
+    <Compile Include="Recipes\IngredientCollection.cs" />
+    <Compile Include="Recipes\OwnedList.cs" />
+    <Compile Include="Recipes\PlaceholderIngredient.cs" />
+    <Compile Include="Recipes\Product.cs" />
+    <Compile Include="Recipes\RecipeBook.cs" />
+    <Compile Include="Recipes\ReportingEventArgs.cs" />
+    <Compile Include="Recipes\UpdateStage.cs" />
+    <EmbeddedResource Include="Interface\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\EditIngredient.resx">
+      <DependentUpon>EditIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\ImageItemControl.resx">
+      <DependentUpon>ImageItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\NewImage.resx">
+      <DependentUpon>NewImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\RecipeEditor.resx">
+      <DependentUpon>RecipeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\RecipeItem.resx">
+      <DependentUpon>RecipeItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Properties\Strings.resx" />
+    <None Include="AquariaRecipes.licenseheader" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\JAL.AquariaRecipes.Recipes.BasicIngredient.datasource" />
+    <None Include="Properties\DataSources\JAL.AquariaRecipes.Recipes.Category.datasource" />
+    <None Include="Properties\DataSources\JAL.AquariaRecipes.Recipes.IIngredient.datasource" />
+    <None Include="Properties\DataSources\JAL.AquariaRecipes.Recipes.Image.datasource" />
+    <None Include="Properties\DataSources\JAL.AquariaRecipes.Recipes.IngredientCollection.datasource" />
+    <None Include="Properties\DataSources\JAL.AquariaRecipes.Recipes.Product.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open_6529.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Anything.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\FileVersion.tt" />
+    <Content Include="Properties\VersionInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VersionInfo.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Properties\VersionResource.generated.rc">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VersionResource.tt</DependentUpon>
+    </Content>
+    <Content Include="Properties\VersionResource.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VersionResource.generated.rc</LastGenOutput>
+    </Content>
+    <None Include="Resources\Help.bmp" />
+    <None Include="Resources\HelpHS.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>set INCLUDE=D:\Programs\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\ATLMFC\include;D:\Programs\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\cppwinrt
+if "$(ConfigurationName)" equ "Debug" (
+    "C:\Program Files (x86)\Windows Kits\10\bin\x86\rc.exe" /nologo /d DEBUG "$(ProjectDir)Properties\VersionResource.generated.rc"
+) else (
+    "C:\Program Files (x86)\Windows Kits\10\bin\x86\rc.exe" /nologo "$(ProjectDir)Properties\VersionResource.generated.rc"
+)</PreBuildEvent>
+  </PropertyGroup>
+</Project>
