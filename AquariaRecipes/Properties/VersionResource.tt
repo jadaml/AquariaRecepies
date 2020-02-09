@@ -37,7 +37,7 @@ IEnumerable<FileFlags> debugFileFlags = fileFlags.Concat(new FileFlags[] { FileF
 
 1 VERSIONINFO
 FILEVERSION    <#= fileMajor #>, <#= fileMinor #>, <#= build #>, <#= revision #>
-PRODUCTVERSION <#= major #>, <#= minor #>, <#= build #>, <#= patch #>
+PRODUCTVERSION <#= major #>, <#= minor #>, <#= build #>, <#= revision #>
 FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
 #ifdef DEBUG
 FILEFLAGS      (<#= string.Join("|", debugFileFlags) #>)
@@ -54,9 +54,9 @@ FILESUBTYPE    VFT2_UNKNOWN
         {
             VALUE "CompanyName",      "Ádám L. Juhász"
             VALUE "FileDescription",  "Aquaria recipe guide browser and editor"
-            VALUE "FileVersion",      "<#= fileMajor #>.<#= fileMinor #>.<#= build #>.<#= revision #>"
+            VALUE "FileVersion",      "<#= fileVersion #>"
             VALUE "InternalName",     "AquariaRecipes"
-            VALUE "LegalCopyright",   "Copyright © 2018, Ádám L. Juhász"
+            VALUE "LegalCopyright",   "Copyright © 2018, 2020, Ádám L. Juhász"
             VALUE "OriginalFilename", "AquariaRecipes.exe"
 <#
             if (build == "0" || revision == "0")
@@ -82,9 +82,9 @@ FILESUBTYPE    VFT2_UNKNOWN
         {
             VALUE "CompanyName",      "Juhász Ádám L."
             VALUE "FileDescription",  "Aquaria recept útmutató böngésző és szerkesztő."
-            VALUE "FileVersion",      "<#= fileMajor #>.<#= fileMinor #>.<#= build #>.<#= revision #>"
+            VALUE "FileVersion",      "<#= fileVersion #>"
             VALUE "InternalName",     "AquariaRecipes"
-            VALUE "LegalCopyright",   "Copyright © 2018, Ádám L. Juhász"
+            VALUE "LegalCopyright",   "Copyright © 2018, 2020, Ádám L. Juhász"
             VALUE "OriginalFilename", "AquariaRecipes.exe"
 <#
             if (build == "0" || revision == "0")

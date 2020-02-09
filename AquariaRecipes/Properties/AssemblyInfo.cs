@@ -28,7 +28,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Aquaria Cook Book")]
-[assembly: AssemblyCopyright("Copyright © 2018, Ádám L. Juhász")]
+[assembly: AssemblyCopyright("Copyright © 2018, 2020, Ádám L. Juhász")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -3,7 +3,7 @@
 
 uint major = 1;
 uint minor = 0;
-uint patch = 0;
+uint patch = 1;
 
 string preReleaseStage = "alpha";
 uint   preReleaseLevel = 0;
@@ -46,9 +46,10 @@ buildMetaData = from identifier in buildMetaData
                    && (!(identifier is string) || (string)identifier != "" && (string)identifier != "0")
                 select identifier;
 
-string productVersion = $"{major}.{minor}.{patch}"
-                      + (preRelease.Any() ? $"-{string.Join(".", preRelease)}" : "")
-                      + $"+{string.Join(".", buildMetaData)}";
+string verSuffix = (preRelease.Any() ? $"-{string.Join(".", preRelease)}" : "")
+                 + $"+{string.Join(".", buildMetaData)}";
+
+string productVersion = $"{major}.{minor}.{patch}" + verSuffix;
 
 preRelease = from identifier in preRelease
              select identifier is string ? $@"""{identifier}""" : (identifier.GetType().IsEnum ? $"{identifier.GetType().FullName}.{identifier}" : identifier);

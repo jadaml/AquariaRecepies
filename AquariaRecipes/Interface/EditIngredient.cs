@@ -171,19 +171,10 @@ namespace JAL.AquariaRecipes.Interface
         {
             if (e.Index == -1) return;
 
-            stampRecipeItem.Recipe    = srcIngredients[e.Index] as IngredientCollection;
-            stampRecipeItem.BackColor = e.BackColor;
-            stampRecipeItem.ForeColor = e.ForeColor;
-            stampRecipeItem.Font      = e.Font;
-            stampRecipeItem.Width     = e.Bounds.Width;
-            stampRecipeItem.Height    = e.Bounds.Height;
-
-            Bitmap bmp = new Bitmap(e.Bounds.Width, e.Bounds.Height);
-
-            stampRecipeItem.DrawToBitmap(bmp, new Rectangle(Point.Empty, bmp.Size));
+            stampRecipeItem.Recipe = srcIngredients[e.Index] as IngredientCollection;
 
             e.DrawBackground();
-            e.Graphics.DrawImage(bmp, e.Bounds.Location);
+            stampRecipeItem.DrawItem(e);
             e.DrawFocusRectangle();
         }
 

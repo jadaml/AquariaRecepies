@@ -31,8 +31,9 @@ namespace JAL.AquariaRecipes.Interface
 {
     public partial class RecipeItem : UserControl
     {
+        private Bitmap               m_ws;
         private IngredientCollection recipe;
-        private int width = 64;
+        private int                  width = 64;
 
         public IngredientCollection Recipe
         {
@@ -65,6 +66,38 @@ namespace JAL.AquariaRecipes.Interface
         public RecipeItem()
         {
             InitializeComponent();
+        }
+
+        public void DrawItem(DrawItemEventArgs e)
+        {
+            AutoSize  = false;
+            Font      = e.Font;
+            BackColor = e.BackColor;
+            ForeColor = e.ForeColor;
+            Size      = e.Bounds.Size;
+
+            ResizeWorkspace(e.Bounds.Size, e.Graphics);
+            DrawToBitmap(m_ws, new Rectangle(Point.Empty, Size));
+            //m_ws.Save($"Item_{e.Index}_{e.Bounds.Width}_{e.Bounds.Height}.png");
+
+            e.DrawBackground();
+            e.Graphics.DrawImage(m_ws, e.Bounds.Location);
+            e.DrawFocusRectangle();
+        }
+
+        private void ResizeWorkspace(Size size, Graphics g)
+        {
+            int w, h;
+
+            for (w = m_ws == null ? 16 : m_ws.Width; w < size.Width; w *= 2) ;
+            for (h = m_ws == null ? 16 : m_ws.Height; h < size.Height; h *= 2) ;
+
+            if (m_ws == null
+             || w != m_ws.Width
+             || h != m_ws.Height)
+            {
+                m_ws = new Bitmap(w, h, g);
+            }
         }
     }
 }
